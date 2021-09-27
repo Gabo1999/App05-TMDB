@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  App05-TMDB
 //
-//  Created by David Josue Marcial Quero on 27/09/21.
+//  Created by David Josué Marcial Quero on 27/09/21.
 //
 
 import SwiftUI
@@ -13,12 +13,16 @@ struct TMDBView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(mediaModel.genres) {genre in
-                    Text(genre.name)
-                }
+            TabView {
+                MoviesView()
+                    .tabItem {
+                        Label("Movies", systemImage: "film.fill")
+                    }
+                SeriesView()
+                    .tabItem {
+                        Label("Series", systemImage: "tv.fill")
+                    }
             }
-            .listStyle(PlainListStyle())
             .navigationBarTitle("Géneros", displayMode: .inline)
             
         }
