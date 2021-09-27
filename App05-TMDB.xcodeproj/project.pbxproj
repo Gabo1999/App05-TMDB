@@ -3,23 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		87FAA0952702135800E19298 /* App05_TMDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0942702135800E19298 /* App05_TMDBApp.swift */; };
-		87FAA0972702135800E19298 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0962702135800E19298 /* ContentView.swift */; };
+		87FAA0972702135800E19298 /* TMDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0962702135800E19298 /* TMDBView.swift */; };
 		87FAA0992702135900E19298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FAA0982702135900E19298 /* Assets.xcassets */; };
 		87FAA09C2702135900E19298 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FAA09B2702135900E19298 /* Preview Assets.xcassets */; };
+		87FAA0A72702158800E19298 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 87FAA0A62702158800E19298 /* Alamofire */; };
+		87FAA0AB270215A900E19298 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 87FAA0AA270215A900E19298 /* SwiftyJSON */; };
+		87FAA0AF270215CB00E19298 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 87FAA0AE270215CB00E19298 /* Kingfisher */; };
+		87FAA0B32702169100E19298 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0B22702169100E19298 /* Genre.swift */; };
+		87FAA0B72702189A00E19298 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0B62702189A00E19298 /* MediaModel.swift */; };
+		87FAA0BA27021A2700E19298 /* TMDBLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0B927021A2700E19298 /* TMDBLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		87FAA0912702135800E19298 /* App05-TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App05-TMDB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FAA0942702135800E19298 /* App05_TMDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App05_TMDBApp.swift; sourceTree = "<group>"; };
-		87FAA0962702135800E19298 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		87FAA0962702135800E19298 /* TMDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBView.swift; sourceTree = "<group>"; };
 		87FAA0982702135900E19298 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87FAA09B2702135900E19298 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		87FAA09D2702135900E19298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87FAA0B22702169100E19298 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		87FAA0B62702189A00E19298 /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
+		87FAA0B927021A2700E19298 /* TMDBLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +36,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87FAA0AF270215CB00E19298 /* Kingfisher in Frameworks */,
+				87FAA0AB270215A900E19298 /* SwiftyJSON in Frameworks */,
+				87FAA0A72702158800E19298 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,11 +64,13 @@
 		87FAA0932702135800E19298 /* App05-TMDB */ = {
 			isa = PBXGroup;
 			children = (
+				87FAA0B12702166200E19298 /* Models */,
 				87FAA0942702135800E19298 /* App05_TMDBApp.swift */,
-				87FAA0962702135800E19298 /* ContentView.swift */,
+				87FAA0962702135800E19298 /* TMDBView.swift */,
 				87FAA0982702135900E19298 /* Assets.xcassets */,
 				87FAA09D2702135900E19298 /* Info.plist */,
 				87FAA09A2702135900E19298 /* Preview Content */,
+				87FAA0B927021A2700E19298 /* TMDBLogin.swift */,
 			);
 			path = "App05-TMDB";
 			sourceTree = "<group>";
@@ -67,6 +81,15 @@
 				87FAA09B2702135900E19298 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		87FAA0B12702166200E19298 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87FAA0B22702169100E19298 /* Genre.swift */,
+				87FAA0B62702189A00E19298 /* MediaModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +108,11 @@
 			dependencies = (
 			);
 			name = "App05-TMDB";
+			packageProductDependencies = (
+				87FAA0A62702158800E19298 /* Alamofire */,
+				87FAA0AA270215A900E19298 /* SwiftyJSON */,
+				87FAA0AE270215CB00E19298 /* Kingfisher */,
+			);
 			productName = "App05-TMDB";
 			productReference = 87FAA0912702135800E19298 /* App05-TMDB.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +140,11 @@
 				Base,
 			);
 			mainGroup = 87FAA0882702135800E19298;
+			packageReferences = (
+				87FAA0A52702158800E19298 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				87FAA0A9270215A900E19298 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				87FAA0AD270215CB00E19298 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 87FAA0922702135800E19298 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87FAA0972702135800E19298 /* ContentView.swift in Sources */,
+				87FAA0B72702189A00E19298 /* MediaModel.swift in Sources */,
+				87FAA0B32702169100E19298 /* Genre.swift in Sources */,
+				87FAA0972702135800E19298 /* TMDBView.swift in Sources */,
 				87FAA0952702135800E19298 /* App05_TMDBApp.swift in Sources */,
+				87FAA0BA27021A2700E19298 /* TMDBLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +364,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		87FAA0A52702158800E19298 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.4;
+			};
+		};
+		87FAA0A9270215A900E19298 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		87FAA0AD270215CB00E19298 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		87FAA0A62702158800E19298 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87FAA0A52702158800E19298 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		87FAA0AA270215A900E19298 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87FAA0A9270215A900E19298 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		87FAA0AE270215CB00E19298 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87FAA0AD270215CB00E19298 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 87FAA0892702135800E19298 /* Project object */;
 }
