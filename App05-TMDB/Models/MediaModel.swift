@@ -71,4 +71,43 @@ class MediaModel: ObservableObject {
     func loadSeriesNowPlaying() {
         
     }
+    
+    func loadMoviesPosters(id: Int, handler: @escaping(_ returnedImages: [String]) ->()) {
+        
+        let URL = "\(tmdbURL)movie/\(id)/images?api_key=\(apikey)"
+        
+        AF.request(URL, method: .get, encoding: URLEncoding.default, headers: HTTPHeaders(headers)).responseData { data in
+
+            let json = try! JSON(data: data.data!)
+            //print(json)
+            var images = [String]()
+        
+            for image in json["posters"] {
+                if image.1["width"].intValue == 2000 && image.1["iso_639_1"].stringValue == "en" {
+                    images.append(image.1["file_path"].stringValue)
+                }
+            }
+            handler(images)
+        }
+    }
+    
+    func loadMoviesTrailers(id: Int, handler: @escaping(_ returnedTrailers: [Trailer]) ->()) {
+        
+        let URL = "\(tmdbURL)movie/\(id)/videos?api_key=\(apikey)&language=en-US"
+        
+        AF.request(URL, method: .get, encoding: URLEncoding.default, headers: HTTPHeaders(headers)).responseData { data in
+
+            let json = try! JSON(data: data.data!)
+            //print(json)
+            var trailers = [Trailer]()
+            var trailer: Trailer
+        
+            for t in json["results"] {
+                trailer = Trailer(id: t.1["id"].stringValue, name: t.1["name"].stringValue, key: t.1["key"].stringValue, type: t.1["type"].stringValue)
+                trailers.append(trailer)
+            }
+            trailers.sort {$0.type > $1.type}
+            handler(trailers)
+        }
+    }
 }

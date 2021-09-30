@@ -22,7 +22,7 @@ struct MediaRowView: View {
                 .overlay(
                     ZStack {
                         RoundedRectangle(cornerRadius: 40)
-                            .stroke(Color.green, style: StrokeStyle(
+                            .stroke(Color.yellow, style: StrokeStyle(
                                         lineWidth: 10.0, lineCap: .round, lineJoin: .round))
                         VStack {
                             Spacer()

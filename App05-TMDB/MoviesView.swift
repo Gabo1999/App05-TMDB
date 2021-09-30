@@ -16,7 +16,7 @@ struct MoviesView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(mediaModel.moviesNowPlaying) { movie in
-                        NavigationLink(destination: MediaDetailView(media: movie)) {
+                        NavigationLink(destination: MediaDetailView(mediaModel: mediaModel, media: movie)) {
                             MediaRowView(media: movie, width: geo.size.width)
                         }
                     }
