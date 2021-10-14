@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct SeriesView: View {
+    @StateObject var mediaModel = MediaModel()
+    
     var body: some View {
-        Text("Series")
+        GeometryReader { geo in
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(mediaModel.seriesNowPlaying) { serie in
+                        NavigationLink(destination: MediaDetailView(mediaModel: mediaModel, media: serie)) {
+                            MediaRowView(media: serie, width: geo.size.width)
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Movies", displayMode: .inline)
+        }
     }
 }
 

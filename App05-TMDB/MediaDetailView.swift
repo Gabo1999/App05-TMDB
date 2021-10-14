@@ -10,7 +10,7 @@ import Kingfisher
 
 struct MediaDetailView: View {
     
-    @StateObject var mediaModel = MediaModel()
+    @ObservedObject var mediaModel = MediaModel()
     
     var media: Media
     
@@ -27,7 +27,7 @@ struct MediaDetailView: View {
                     Text(media.overview)
                         .font(.headline)
                         .multilineTextAlignment(.center)
-                    ScrollView(.horizontal, showsIndicators: false) {
+                    ScrollView(.horizontal, showsIndicators: true) {
                         HStack {
                             ForEach(media.genres, id: \.self) { g in
                                 Text(g)
