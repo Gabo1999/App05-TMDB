@@ -22,8 +22,12 @@ struct TMDBView: View {
                     .tabItem {
                         Label("Series", systemImage: "tv.fill")
                     }
+                WatchListView()
+                    .tabItem {
+                        Label("Watch List", systemImage: "list.star")
+                    }
             }
-            .navigationBarTitle("Movies", displayMode: .inline)
+            .navigationBarTitle("TMDB", displayMode: .inline)
             
         }
     }

@@ -22,8 +22,17 @@ struct MediaRowView: View {
                 .overlay(
                     ZStack {
                         RoundedRectangle(cornerRadius: 40)
-                            .stroke(Color.yellow, style: StrokeStyle(
+                            .stroke(Color.green, style: StrokeStyle(
                                         lineWidth: 10.0, lineCap: .round, lineJoin: .round))
+                        VStack {
+                            HStack {
+                                Spacer()
+                                AddToWatchList(filter: media)
+                                    .padding(.trailing, 20)
+                                    .padding(.top, 20)
+                            }
+                            Spacer()
+                        }
                         VStack {
                             Spacer()
                             HStack {

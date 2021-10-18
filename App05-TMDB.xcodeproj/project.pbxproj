@@ -11,6 +11,12 @@
 		87380483270627A00033ABA3 /* TrailersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87380482270627A00033ABA3 /* TrailersView.swift */; };
 		87380486270629A70033ABA3 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87380485270629A70033ABA3 /* Trailer.swift */; };
 		8738048927062D4C0033ABA3 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8738048827062D4C0033ABA3 /* WebView.swift */; };
+		873BB3BE271DE44200E05082 /* WatchList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 873BB3BC271DE44200E05082 /* WatchList.xcdatamodeld */; };
+		873BB3C1271DE51B00E05082 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BB3C0271DE51B00E05082 /* Persistance.swift */; };
+		873BB3C6271DE76F00E05082 /* WatchList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BB3C4271DE76F00E05082 /* WatchList+CoreDataClass.swift */; };
+		873BB3C7271DE76F00E05082 /* WatchList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BB3C5271DE76F00E05082 /* WatchList+CoreDataProperties.swift */; };
+		873BB3CA271DE8FA00E05082 /* WatchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BB3C9271DE8FA00E05082 /* WatchListView.swift */; };
+		873BB3CD271DEA3D00E05082 /* AddToWatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BB3CC271DEA3D00E05082 /* AddToWatchList.swift */; };
 		87FAA0952702135800E19298 /* App05_TMDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0942702135800E19298 /* App05_TMDBApp.swift */; };
 		87FAA0972702135800E19298 /* TMDBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FAA0962702135800E19298 /* TMDBView.swift */; };
 		87FAA0992702135900E19298 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87FAA0982702135900E19298 /* Assets.xcassets */; };
@@ -33,6 +39,12 @@
 		87380482270627A00033ABA3 /* TrailersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailersView.swift; sourceTree = "<group>"; };
 		87380485270629A70033ABA3 /* Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailer.swift; sourceTree = "<group>"; };
 		8738048827062D4C0033ABA3 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		873BB3BD271DE44200E05082 /* WatchList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WatchList.xcdatamodel; sourceTree = "<group>"; };
+		873BB3C0271DE51B00E05082 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		873BB3C4271DE76F00E05082 /* WatchList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		873BB3C5271DE76F00E05082 /* WatchList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WatchList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		873BB3C9271DE8FA00E05082 /* WatchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListView.swift; sourceTree = "<group>"; };
+		873BB3CC271DEA3D00E05082 /* AddToWatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToWatchList.swift; sourceTree = "<group>"; };
 		87FAA0912702135800E19298 /* App05-TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App05-TMDB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FAA0942702135800E19298 /* App05_TMDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App05_TMDBApp.swift; sourceTree = "<group>"; };
 		87FAA0962702135800E19298 /* TMDBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBView.swift; sourceTree = "<group>"; };
@@ -94,8 +106,10 @@
 				87380482270627A00033ABA3 /* TrailersView.swift */,
 				8738048827062D4C0033ABA3 /* WebView.swift */,
 				87FAA0C52702367800E19298 /* MediaRowView.swift */,
+				873BB3CC271DEA3D00E05082 /* AddToWatchList.swift */,
 				8738047F270609AC0033ABA3 /* RateView.swift */,
 				87FAA0BF2702296300E19298 /* SeriesView.swift */,
+				873BB3C9271DE8FA00E05082 /* WatchListView.swift */,
 			);
 			path = "App05-TMDB";
 			sourceTree = "<group>";
@@ -111,10 +125,14 @@
 		87FAA0B12702166200E19298 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				873BB3C4271DE76F00E05082 /* WatchList+CoreDataClass.swift */,
+				873BB3C5271DE76F00E05082 /* WatchList+CoreDataProperties.swift */,
 				87FAA0B22702169100E19298 /* Genre.swift */,
 				87FAA0B62702189A00E19298 /* MediaModel.swift */,
 				87FAA0C227022B3500E19298 /* Media.swift */,
 				87380485270629A70033ABA3 /* Trailer.swift */,
+				873BB3BC271DE44200E05082 /* WatchList.xcdatamodeld */,
+				873BB3C0271DE51B00E05082 /* Persistance.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,13 +221,19 @@
 				87380486270629A70033ABA3 /* Trailer.swift in Sources */,
 				87FAA0B32702169100E19298 /* Genre.swift in Sources */,
 				87380480270609AC0033ABA3 /* RateView.swift in Sources */,
+				873BB3C6271DE76F00E05082 /* WatchList+CoreDataClass.swift in Sources */,
+				873BB3CD271DEA3D00E05082 /* AddToWatchList.swift in Sources */,
 				87FAA0972702135800E19298 /* TMDBView.swift in Sources */,
 				87FAA0952702135800E19298 /* App05_TMDBApp.swift in Sources */,
 				87380483270627A00033ABA3 /* TrailersView.swift in Sources */,
+				873BB3CA271DE8FA00E05082 /* WatchListView.swift in Sources */,
+				873BB3C7271DE76F00E05082 /* WatchList+CoreDataProperties.swift in Sources */,
 				87FAA0BA27021A2700E19298 /* TMDBLogin.swift in Sources */,
 				87FAA0C327022B3500E19298 /* Media.swift in Sources */,
 				87FAA0C62702367800E19298 /* MediaRowView.swift in Sources */,
 				87FAA0C9270238B500E19298 /* MediaDetailView.swift in Sources */,
+				873BB3BE271DE44200E05082 /* WatchList.xcdatamodeld in Sources */,
+				873BB3C1271DE51B00E05082 /* Persistance.swift in Sources */,
 				87FAA0C02702296300E19298 /* SeriesView.swift in Sources */,
 				8738048927062D4C0033ABA3 /* WebView.swift in Sources */,
 			);
@@ -445,6 +469,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		873BB3BC271DE44200E05082 /* WatchList.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				873BB3BD271DE44200E05082 /* WatchList.xcdatamodel */,
+			);
+			currentVersion = 873BB3BD271DE44200E05082 /* WatchList.xcdatamodel */;
+			path = WatchList.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 87FAA0892702135800E19298 /* Project object */;
 }
