@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct App05_TMDBApp: App {
+    
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             TMDBView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

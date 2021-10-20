@@ -16,7 +16,7 @@ extension WatchList {
         return NSFetchRequest<WatchList>(entityName: "WatchList")
     }
 
-    @NSManaged public var id: Int16
+    @NSManaged public var id: Int32
     @NSManaged public var title: String?
     @NSManaged public var overview: String?
     @NSManaged public var poster: String?

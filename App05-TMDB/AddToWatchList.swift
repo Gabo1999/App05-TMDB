@@ -40,7 +40,7 @@ struct AddToWatchList: View {
     
     func AddMediaToWatchList() {
         let m = WatchList(context: viewContext)
-        m.id = Int16(media.id)
+        m.id = Int32(media.id)
         m.title = media.title
         m.overview = media.overview
         m.releaseDate = media.releaseDate
