@@ -51,6 +51,7 @@ struct AddToWatchList: View {
             arrGenre.append(g)
         }
         m.genres = arrGenre
+        m.isMovie = media.isMovie
         try? viewContext.save()
     }
     

@@ -23,6 +23,7 @@ extension WatchList {
     @NSManaged public var rate: Double
     @NSManaged public var genres: [String]
     @NSManaged public var releaseDate: String?
+    @NSManaged public var isMovie: Bool
     
     var title_wrapped: String {
         title ?? ""

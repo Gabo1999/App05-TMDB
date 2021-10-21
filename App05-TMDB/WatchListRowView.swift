@@ -1,20 +1,21 @@
 //
-//  MediaRowView.swift
+//  WatchListRowView.swift
 //  App05-TMDB
 //
-//  Created by David Josué Marcial Quero on 27/09/21.
+//  Created by Alumno on 21/10/21.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct MediaRowView: View {
-    var media: Media
+struct WatchListRowView: View {
+    
+    var media: WatchList
     var width: CGFloat
     
     var body: some View {
         VStack {
-            KFImage(URL(string: "\(imageURL)\(media.poster)"))
+            KFImage(URL(string: "\(imageURL)\(media.poster_wrapped)"))
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: width - 40)
@@ -27,7 +28,7 @@ struct MediaRowView: View {
                         VStack {
                             HStack {
                                 Spacer()
-                                AddToWatchList(filter: media)
+                                RemoveFromWatchList(media: media)
                                     .padding(.trailing, 20)
                                     .padding(.top, 20)
                             }
@@ -36,7 +37,7 @@ struct MediaRowView: View {
                         VStack {
                             Spacer()
                             HStack {
-                                RateView(rating: media.rating * 10)
+                                RateView(rating: media.rate * 10)
                                     .padding(.leading, 40)
                                     .padding(.bottom, -35)
                                 Spacer()
@@ -45,22 +46,21 @@ struct MediaRowView: View {
                     }
                 )
                 .padding(.top, 10)
-            Text(media.title)
+            Text(media.title_wrapped)
                 .font(.largeTitle)
                 .frame(width: width - 40)
                 .multilineTextAlignment(.center)
                 .padding(.top, 40)
-            Text(media.releaseDate)
+            Text(media.releaseDate_wrapped)
                 .font(.headline)
                 .padding(.top, 0)
         }
         .padding(.horizontal, 20)
-        .padding(.horizontal, 20)
     }
 }
 
-struct MediaRowView_Previews: PreviewProvider {
+struct WatchListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaRowView(media: Media.dummy, width: 300.0)
+        WatchListRowView(media: WatchList(), width: 100)
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct MoviesView: View {
-    @StateObject var mediaModel = MediaModel()
+    @ObservedObject var mediaModel = MediaModel()
     
     var body: some View {
         GeometryReader { geo in

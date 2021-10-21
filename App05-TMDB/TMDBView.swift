@@ -14,15 +14,15 @@ struct TMDBView: View {
     var body: some View {
         NavigationView {
             TabView {
-                MoviesView()
+                MoviesView(mediaModel: MediaModel())
                     .tabItem {
                         Label("Movies", systemImage: "film.fill")
                     }
-                SeriesView()
+                SeriesView(mediaModel: mediaModel)
                     .tabItem {
                         Label("Series", systemImage: "tv.fill")
                     }
-                WatchListView()
+                WatchListView(mediaModel: mediaModel)
                     .tabItem {
                         Label("Watch List", systemImage: "list.star")
                     }

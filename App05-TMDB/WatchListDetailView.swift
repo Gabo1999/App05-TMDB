@@ -1,18 +1,17 @@
 //
-//  MediaDetailView.swift
+//  WatchListDetailView.swift
 //  App05-TMDB
 //
-//  Created by David Josué Marcial Quero on 27/09/21.
+//  Created by Alumno on 21/10/21.
 //
 
 import SwiftUI
 import Kingfisher
 
-struct MediaDetailView: View {
+struct WatchListDetailView: View {
     
     @ObservedObject var mediaModel = MediaModel()
-    
-    var media: Media
+    var media: WatchList
     
     @State var posters = [String]()
     @State var trailers = [Trailer]()
@@ -21,9 +20,9 @@ struct MediaDetailView: View {
         GeometryReader { geo in
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
-                    Text(media.title)
+                    Text(media.title_wrapped)
                         .font(.title)
-                    Text(media.overview)
+                    Text(media.overview_wrapped)
                         .font(.headline)
                         .multilineTextAlignment(.center)
                     ScrollView(.horizontal, showsIndicators: true) {
@@ -53,14 +52,14 @@ struct MediaDetailView: View {
                     }
                 }
                 .padding(.horizontal, 20)
-                .navigationBarTitle(media.isMovie ? "Movies" : "Series", displayMode: .inline)
+                .navigationBarTitle("Movies", displayMode: .inline)
             }
             .onAppear {
-                mediaModel.loadPosters(id: media.id, isMovie: media.isMovie, handler: { (returnedImages) in
+                mediaModel.loadPosters(id: Int(media.id), isMovie: media.isMovie, handler: { (returnedImages) in
                     self.posters.removeAll()
                     self.posters.append(contentsOf: returnedImages)
                 })
-                mediaModel.loadTrailers(id: media.id, isMovie: media.isMovie, handler: { (returnedTrailers) in
+                mediaModel.loadTrailers(id: Int(media.id), isMovie: media.isMovie, handler: { (returnedTrailers) in
                     self.trailers.removeAll()
                     self.trailers.append(contentsOf: returnedTrailers)
                 })
@@ -69,8 +68,8 @@ struct MediaDetailView: View {
     }
 }
 
-struct MediaDetailView_Previews: PreviewProvider {
+struct WatchListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaDetailView(mediaModel: MediaModel(), media: Media.dummy)
+        WatchListDetailView(mediaModel: MediaModel(), media: WatchList())
     }
 }

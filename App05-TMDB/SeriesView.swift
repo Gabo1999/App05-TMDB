@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SeriesView: View {
-    @StateObject var mediaModel = MediaModel()
+    @ObservedObject var mediaModel = MediaModel()
     
     var body: some View {
         GeometryReader { geo in
@@ -21,13 +21,13 @@ struct SeriesView: View {
                     }
                 }
             }
-            .navigationBarTitle("Movies", displayMode: .inline)
+            .navigationBarTitle("Series", displayMode: .inline)
         }
     }
 }
 
 struct SeriesView_Previews: PreviewProvider {
     static var previews: some View {
-        SeriesView()
+        SeriesView(mediaModel: MediaModel())
     }
 }

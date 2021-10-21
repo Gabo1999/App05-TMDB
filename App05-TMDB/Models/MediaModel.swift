@@ -17,8 +17,6 @@ class MediaModel: ObservableObject {
     
     init() {
         loadGenres()
-        loadMoviesNowPlaying()
-        loadSeriesNowPlaying()
     }
     
     func loadGenres() {
@@ -36,6 +34,8 @@ class MediaModel: ObservableObject {
                     genre = Genre(id: j.1["id"].intValue, name: j.1["name"].stringValue)
                     self.genres.append(genre)
                 }
+                self.loadMoviesNowPlaying()
+                self.loadSeriesNowPlaying()
         }
     }
     
@@ -62,7 +62,8 @@ class MediaModel: ObservableObject {
                                   poster: m.1["poster_path"].stringValue,
                                   rating: m.1["vote_average"].doubleValue,
                                   genres: genresIds,
-                                  releaseDate: m.1["release_date"].stringValue)
+                                  releaseDate: m.1["release_date"].stringValue,
+                                  isMovie: true)
                     self.moviesNowPlaying.append(movie)
                 }
         }
@@ -75,7 +76,7 @@ class MediaModel: ObservableObject {
 
                 let json = try! JSON(data: data.data!)
                 //print(json)
-                var movie: Media
+                var serie: Media
             
                 for m in json["results"] {
                     var genresIds = [String]()
@@ -84,21 +85,28 @@ class MediaModel: ObservableObject {
                             genresIds.append(self.genres[index].name)
                         }
                     }
-                    movie = Media(id: m.1["id"].intValue,
+                    serie = Media(id: m.1["id"].intValue,
                                   title: m.1["name"].stringValue,
                                   overview: m.1["overview"].stringValue,
                                   poster: m.1["poster_path"].stringValue,
                                   rating: m.1["vote_average"].doubleValue,
                                   genres: genresIds,
-                                  releaseDate: m.1["first_air_date"].stringValue)
-                    self.seriesNowPlaying.append(movie)
+                                  releaseDate: m.1["first_air_date"].stringValue,
+                                  isMovie: false)
+                    self.seriesNowPlaying.append(serie)
                 }
         }
     }
     
-    func loadMoviesPosters(id: Int, handler: @escaping(_ returnedImages: [String]) ->()) {
+    func loadPosters(id: Int, isMovie: Bool,handler: @escaping(_ returnedImages: [String]) ->()) {
         
-        let URL = "\(tmdbURL)movie/\(id)/images?api_key=\(apikey)"
+        var URL: String
+        if isMovie {
+            URL = "\(tmdbURL)movie/\(id)/images?api_key=\(apikey)"
+            print("Movie Poster")
+        } else {
+            URL = "\(tmdbURL)tv/\(id)/images?api_key=\(apikey)"
+        }
         
         AF.request(URL, method: .get, encoding: URLEncoding.default, headers: HTTPHeaders(headers)).responseData { data in
 
@@ -115,9 +123,13 @@ class MediaModel: ObservableObject {
         }
     }
     
-    func loadMoviesTrailers(id: Int, handler: @escaping(_ returnedTrailers: [Trailer]) ->()) {
-        
-        let URL = "\(tmdbURL)movie/\(id)/videos?api_key=\(apikey)&language=en-US"
+    func loadTrailers(id: Int, isMovie: Bool, handler: @escaping(_ returnedTrailers: [Trailer]) ->()) {
+        var URL: String
+        if isMovie {
+            URL = "\(tmdbURL)movie/\(id)/videos?api_key=\(apikey)&language=en-US"
+        } else {
+            URL = "\(tmdbURL)tv/\(id)/videos?api_key=\(apikey)&language=en-US"
+        }
         
         AF.request(URL, method: .get, encoding: URLEncoding.default, headers: HTTPHeaders(headers)).responseData { data in
 
